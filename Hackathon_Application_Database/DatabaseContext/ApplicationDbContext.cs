@@ -20,24 +20,24 @@ namespace Hackathon_Application_Database.DatabaseContext
                 .HasKey(m => m.MatterId);
 
             modelBuilder.Entity<Matter>()
-            .Property(m => m.Status)
+            .Property(m => m.StatusId)
                 .IsRequired();
 
             modelBuilder.Entity<Matter>()
-                .Property(m => m.Title)
+                .Property(m => m.AccountNumber)
             .IsRequired()
                 .HasMaxLength(255);
 
-            modelBuilder.Entity<Matter>()
-                .Property(m => m.ClientEmail)
-                .IsRequired()
-                .HasMaxLength(255);
+            //modelBuilder.Entity<Matter>()
+            //    .Property(m => m.ClientEmail)
+            //    .IsRequired()
+            //    .HasMaxLength(255);
 
             modelBuilder.Entity<Document>()
                 .HasKey(d => d.DocumentId);
 
             modelBuilder.Entity<Document>()
-                .Property(d => d.Status)
+                .Property(d => d.StatusId)
                 .IsRequired();
 
             modelBuilder.Entity<Document>()
@@ -46,7 +46,7 @@ namespace Hackathon_Application_Database.DatabaseContext
                 .HasMaxLength(255);
 
             modelBuilder.Entity<Document>()
-                .Property(d => d.ContentType)
+                .Property(d => d.DocumentTypeId)
                 .IsRequired()
                 .HasMaxLength(100);
 

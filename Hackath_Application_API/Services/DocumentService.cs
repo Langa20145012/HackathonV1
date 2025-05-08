@@ -99,7 +99,7 @@ namespace Hackath_Application_API.Services
                 return null;
 
             existingDocument.FileName = document.FileName;
-            existingDocument.ContentType = document.ContentType;
+            existingDocument.DocumentTypeId = document.DocumentTypeId;
             existingDocument.FileContent = document.FileContent;
             existingDocument.LastModifiedDate = DateTime.UtcNow;
 
@@ -129,15 +129,15 @@ namespace Hackath_Application_API.Services
             return true;
         }
 
-        public async Task<Document> UpdateDocumentStatusAsync(int documentId, string status)
+        public async Task<Document> UpdateDocumentStatusAsync(int documentId, int statusId)
         {
             var document = await _dbContext.Documents.FindAsync(documentId);
 
             if (document == null)
                 return null;
 
-            string oldStatus = document.Status;
-            document.Status = status;
+            int oldStatusId = document.StatusId;
+            document.StatusId = statusId;
             document.LastModifiedDate = DateTime.UtcNow;
 
             await _dbContext.SaveChangesAsync();
@@ -147,7 +147,7 @@ namespace Hackath_Application_API.Services
             await _cache.RemoveAsync($"Document_{documentId}");
 
             // Notify if status changed
-            if (oldStatus != status)
+            if (oldStatusId != statusId)
             {
                 await NotifyStatusChangeAsync(document);
             }
@@ -161,7 +161,7 @@ namespace Hackath_Application_API.Services
             {
                 DocumentId = document.DocumentId,
                 MatterId = document.MatterId,
-                Status = document.Status,
+                Status = document.StatusId,
                 FileName = document.FileName
             };
 

@@ -41,7 +41,7 @@ namespace Hackathon_Application_UI.Controllers
 
                 ViewBag.MatterId = matterId;
 
-                ViewBag.MatterTitle = matter.Title;
+                ViewBag.MatterAccount = matter.AccountNumber;
 
                 var documents = await _documentService.GetDocumentsByMatterIdAsync(matterId);
 
@@ -79,7 +79,7 @@ namespace Hackathon_Application_UI.Controllers
 
                 ViewBag.MatterId = matterId;
 
-                ViewBag.MatterTitle = matter.Title;
+                ViewBag.MatterTitle = matter.AccountNumber;
 
                 var model = new DocumentUploadModel { MatterId = matterId };
 
@@ -111,7 +111,7 @@ namespace Hackathon_Application_UI.Controllers
 
                 ViewBag.MatterId = model.MatterId;
 
-                ViewBag.MatterTitle = matter.Title;
+                ViewBag.MatterTitle = matter.AccountNumber;
 
                 return View(model);
 

@@ -2,8 +2,8 @@ using Hackath_Application_API.Interfaces;
 using Hackath_Application_API.Services;
 using Hackathon_Application_Database.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
-using Ocelot.DependencyInjection;
-using Ocelot.Middleware;
+//using Ocelot.DependencyInjection;
+//using Ocelot.Middleware;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,9 +13,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Add DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer("Server=QA-SHARED;Database=APPLICATION_V2;Trusted_Connection=True"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("HackathonConn")));
 
 // Add Redis Cache
 builder.Services.AddStackExchangeRedisCache(options =>
@@ -35,7 +34,7 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 
 // Add Ocelot
-builder.Services.AddOcelot(builder.Configuration);
+//builder.Services.AddOcelot(builder.Configuration);
 // Add CORS
 builder.Services.AddCors(options => 
 {   
@@ -62,6 +61,6 @@ app.MapControllers();
 app.UseCors("CorsPolicy");
 
 // Use Ocelot middleware
-await app.UseOcelot();
+//await app.UseOcelot();
 
 app.Run();

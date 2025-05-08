@@ -85,10 +85,10 @@ namespace Hackath_Application_API.Services
             if (existingMatter == null)
                 return null;
 
-            existingMatter.Title = matter.Title;
+            existingMatter.AccountNumber = matter.AccountNumber;
             existingMatter.Description = matter.Description;
-            existingMatter.Status = matter.Status;
-            existingMatter.ClientEmail = matter.ClientEmail;
+            existingMatter.StatusId = matter.StatusId;
+            //existingMatter.ClientEmail = matter.ClientEmail;
             existingMatter.LastModifiedDate = DateTime.UtcNow;
 
             await _dbContext.SaveChangesAsync();

@@ -14,13 +14,13 @@ namespace Hackathon_Application_Database.Models
         public string FileName { get; set; }
 
         [Required]
-        public string ContentType { get; set; }
+        public int DocumentTypeId { get; set; }
 
         [Required]
         public byte[] FileContent { get; set; }
 
         [Required]
-        public string Status { get; set; }
+        public int StatusId { get; set; }
 
         public DateTime CreatedDate { get; set; }
 

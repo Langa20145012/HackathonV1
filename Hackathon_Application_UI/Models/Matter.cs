@@ -6,7 +6,7 @@ namespace Hackathon_Application_UI.Models
     {
         public int MatterId { get; set; }
         [Required]
-        [Display(Name = "Title")]
+        [Display(Name = "Account Number")]
         public string AccountNumber { get; set; }
         [Display(Name = "Description")]
         public string Description { get; set; }

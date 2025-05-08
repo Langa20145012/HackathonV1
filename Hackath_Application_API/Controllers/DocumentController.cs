@@ -62,9 +62,9 @@ namespace DocumentService.Controllers
         }
 
         [HttpPatch("{id}/status")]
-        public async Task<IActionResult> UpdateDocumentStatus(int id, [FromBody] string status)
+        public async Task<IActionResult> UpdateDocumentStatus(int id, [FromBody] int statusId)
         {
-            var updatedDocument = await _documentService.UpdateDocumentStatusAsync(id, status);
+            var updatedDocument = await _documentService.UpdateDocumentStatusAsync(id, statusId);
 
             if (updatedDocument == null)
                 return NotFound();

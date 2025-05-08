@@ -11,6 +11,6 @@ namespace Hackath_Application_API.Interfaces
         Task<Document> CreateDocumentAsync(Document document);
         Task<Document> UpdateDocumentAsync(Document document);
         Task<bool> DeleteDocumentAsync(int documentId);
-        Task<Document> UpdateDocumentStatusAsync(int documentId, string status);
+        Task<Document> UpdateDocumentStatusAsync(int documentId, int statusId);
     }
 }
