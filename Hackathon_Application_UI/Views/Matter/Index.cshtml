@@ -1,0 +1,27 @@
+﻿@model Hackathon_Application_UI.Models.MatterVM
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Description</th>
+            <th>Participant</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var matter in Model.MatterfList)
+        {
+            <tr>
+                <td>@matter.AccountNumber</td>
+                <td>@matter.Description</td>
+                <td>@matter.Participant</td>
+                <td>@matter.Name</td>
+                <td><a href="@Url.Action("MatterDetails", "Matter", new{matterId = matter.MatterId})">View Matter</a></td>
+            </tr>    
+        }
+    </tbody>
+
+</table>

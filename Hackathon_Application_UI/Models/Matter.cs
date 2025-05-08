@@ -7,7 +7,7 @@ namespace Hackathon_Application_UI.Models
         public int MatterId { get; set; }
         [Required]
         [Display(Name = "Title")]
-        public string Title { get; set; }
+        public string AccountNumber { get; set; }
         [Display(Name = "Description")]
         public string Description { get; set; }
         [Required]
@@ -19,10 +19,14 @@ namespace Hackathon_Application_UI.Models
         public string ClientEmail { get; set; }
         [Required]
         [Display(Name = "Status")]
-        public string Status { get; set; }
+        public int Status { get; set; }
         [Display(Name = "Created Date")]
         public DateTime CreatedDate { get; set; }
         [Display(Name = "Last Modified Date")]
         public DateTime LastModifiedDate { get; set; }
+
+        public string Participant { get; set; }
+
+        public string Name { get; set; }
     }
 }
