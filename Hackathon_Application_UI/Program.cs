@@ -1,7 +1,25 @@
+using Hackathon_Application_UI.Interface;
+using Hackathon_Application_UI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add HttpClient services
+builder.Services.AddHttpClient<IMatterService, MatterService>(client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
+
+builder.Services.AddHttpClient<IDocumentService, DocumentService>(client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
+
+// Register services
+builder.Services.AddScoped<IMatterService, MatterService>();
+builder.Services.AddScoped<IDocumentService, DocumentService>();
 
 var app = builder.Build();
 

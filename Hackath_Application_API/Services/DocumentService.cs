@@ -1,13 +1,14 @@
 ﻿
 using System.Text;
 using System.Text.Json;
+using Hackath_Application_API.Interfaces;
 using Hackathon_Application_Database.DatabaseContext;
 using Hackathon_Application_Database.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 
 
-namespace DocumentService.Services
+namespace Hackath_Application_API.Services
 {
     public class DocumentService : IDocumentService
     {

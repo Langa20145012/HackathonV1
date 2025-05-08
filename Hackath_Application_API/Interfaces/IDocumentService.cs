@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DocumentService.Services
+namespace Hackath_Application_API.Interfaces
 {
     public interface IDocumentService
     {
