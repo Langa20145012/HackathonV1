@@ -1,0 +1,52 @@
+﻿@model Hackathon_Application_UI.Models.MatterVM
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Description</th>
+            <th>Participant</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Created Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+            <td>@Model.Matter.AccountNumber</td>
+            <td>@Model.Matter.Description</td>
+            <td>@Model.Matter.Participant</td>
+            <td>@Model.Matter.Name</td>
+            <td>@Model.Matter.Status</td>
+            <td>@Model.Matter.CreatedDate</td>
+        </tr>        
+
+    </tbody>
+
+</table>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Document Name</th>
+            <th>Created Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var doc in Model.DocumentList)
+        {
+            <tr>@doc.FileName</tr>
+            <tr>@doc.CreatedDate</tr>
+        }
+
+    </tbody>
+
+</table>
+
+
+
+
